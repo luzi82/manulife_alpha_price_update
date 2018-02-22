@@ -30,4 +30,5 @@ mv manulife_alpha_price/output manulife_alpha_price_csv/csv
 pushd manulife_alpha_price_csv
 git add csv
 git commit -m "update ${TIMESTAMP}" || true
+git push
 popd
