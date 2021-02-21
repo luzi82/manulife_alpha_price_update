@@ -24,11 +24,23 @@ pushd manulife_alpha_price
 ./run.sh
 popd
 
-rm -rf manulife_alpha_price_csv/csv
-mv manulife_alpha_price/output manulife_alpha_price_csv/csv
+#rm -rf manulife_alpha_price_csv/csv
+#mv manulife_alpha_price/output manulife_alpha_price_csv/csv
+rm -rf last_csv
+cp -R manulife_alpha_price_csv/csv last_csv
+if [ ! -d venv ]; then
+    python3 -m venv venv
+fi
+. venv/bin/activate
+pip install --upgrade pip wheel
+pip install -r requirements.txt
+python3 merge_csv.py
+deactivate
 
 pushd manulife_alpha_price_csv
 git add --all csv
 git commit -m "update ${TIMESTAMP}" || true
 git push
 popd
+
+rm -rf last_csv
