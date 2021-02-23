@@ -28,7 +28,7 @@ def read_csv(fn):
                     if((len(col_name_list) == 1) and (len(line) == 0)):
                         line = ['']
                     assert(len(line) == len(col_name_list))
-                    ret.append({col_name_list[i]: line[i] for i in range(len(col_name_list))})
+                    ret.append({col_name_list[i]: line[i].strip() for i in range(len(col_name_list))})
         return ret, col_name_list
 
 for csv_path in csv_path_list:
