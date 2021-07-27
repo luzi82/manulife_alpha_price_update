@@ -55,4 +55,4 @@ for csv_path in csv_path_list:
             ['Date']
         )
     else:
-        futsu.fs.cp(target_csv_path, last_csv_path)
+        futsu.fs.cp(target_csv_path, csv_path)
