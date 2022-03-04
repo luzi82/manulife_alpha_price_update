@@ -28,6 +28,7 @@ popd
 #mv manulife_alpha_price/output manulife_alpha_price_csv/csv
 rm -rf last_csv
 cp -R manulife_alpha_price_csv/csv last_csv
+
 if [ ! -d venv ]; then
     python3 -m venv venv
 fi
